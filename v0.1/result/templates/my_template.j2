@@ -1,0 +1,35 @@
+<html >
+<head>
+    <title>接口测试报告</title>
+</head>
+<body>
+    <h1>接口测试结果</h1>
+
+    <ul id="navigation">
+        <table border="1">
+                    <tr>
+                {% for title in titleList %}
+                    <th>{{ title }}</th>
+                {% endfor %}
+                    </tr>
+                {% for oneRes in resListSet %}
+                        <tr>
+                        <td>
+                            {{ loop.index }}
+                        </td>
+                        {% for res in oneRes  %}
+
+                          {% if "失败" in oneRes[1] %}
+                               <td><font color="red">{{ res }}</font></td>
+                            {% else %}
+                                 <td>{{ res }}</td>
+                            {% endif %}
+                        {% endfor %}
+                        </tr>
+
+                {% endfor %}
+        </table>
+
+    </ul>
+</body>
+</html>
